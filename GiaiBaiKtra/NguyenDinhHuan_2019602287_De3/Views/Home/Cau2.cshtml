@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Cau2";
+}
+<link rel="stylesheet" type="text/css" href="~/wwwroot/Cau2Style.css" />
+
+<h2>Câu 2</h2>
+
+@using (Html.BeginForm("KetQua", "Home", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>@Html.Label("Mã nhân viên: ")</td>
+        <td>@Html.TextBox("MaNV")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Họ tên: ")</td>
+        <td>@Html.TextBox("HoTen")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Đơn vị: ")</td>
+        <td>
+            @{ 
+                IEnumerable<string> lst = new List<string> { "Phòng tổ chức", "Phòng kinh doanh", "Phòng kỹ thuật" };
+            }
+            @Html.DropDownList("DonVi", new SelectList(lst, lst.FirstOrDefault()))
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Lương ngày: ")</td>
+        <td>@Html.TextBox("LuongNgay")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Số ngày: ")</td>
+        <td>@Html.TextBox("SoNgay")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Thu nhập: ")</td>
+        <td>@Html.TextBox("ThuNhap")</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center; margin: auto;"><input type="submit" value="Tính"/></td>
+    </tr>
+</table>
+}

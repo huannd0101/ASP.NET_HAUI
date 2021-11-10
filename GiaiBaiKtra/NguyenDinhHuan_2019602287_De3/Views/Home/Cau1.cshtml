@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Cau1";
+}
+
+<link rel="stylesheet" type="text/css" href="~/wwwroot/Cau1Style.css" />
+
+@{ 
+    var res = "0";
+    var soNgay = "";
+    var luongNgay = "";
+    if(IsPost){
+        soNgay = Request["SoNgay"];
+        luongNgay = Request["LuongNgay"];
+        int ngay = soNgay.AsInt();
+        int luong = luongNgay.AsInt();
+
+        if(ngay >= 25)
+        {
+            res = (luong * ngay + 500000).ToString();
+        }else
+        {
+            res = (luong * ngay).ToString();
+        }
+    }
+}
+
+
+<h1>Câu 1</h1>
+
+<form action="" method="post">
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>Mã nhân viên: </td>
+            <td><input type="text" name="MaNV"></td>
+        </tr>
+        <tr>
+            <td>Họ tên: </td>
+            <td><input type="text" name="HoTen"></td>
+        </tr>
+        <tr>
+            <td>Đơn vị: </td>
+            <td>
+                <select name="DonVi">
+                    <option value="Phong To Chuc">Phòng tổ chức</option>
+                    <option value="Phong Kinh Doanh">Phòng kinh doanh</option>
+                    <option value="Phong Ky Thuat">Phòng kỹ thuật</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Lương ngày: </td>
+            <td><input type="text" name="LuongNgay"></td>
+        </tr>
+        <tr>
+            <td>Số ngày: </td>
+            <td><input type="text" name="SoNgay"></td>
+        </tr>
+        <tr>
+            <td>Thu nhập: </td>
+            <td><input type="text" name="ThuNhap" value="@res"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; margin: auto;"> <input type="submit" value="Tính"></td>
+        </tr>
+    </table>
+</form>
+
+<h1>Kết quả thu nhập: @res</h1>
+
+

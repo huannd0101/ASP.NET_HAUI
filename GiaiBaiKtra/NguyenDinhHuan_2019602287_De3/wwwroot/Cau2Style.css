@@ -1,0 +1,18 @@
+﻿
+td {
+    padding: 4px 10px;
+}
+
+table {
+    border: 1px solid black;
+}
+
+.title {
+    background: rgb(255, 94, 94);
+    color: blue;
+}
+
+.kq {
+    background-color: aqua;
+    color: red;
+}
