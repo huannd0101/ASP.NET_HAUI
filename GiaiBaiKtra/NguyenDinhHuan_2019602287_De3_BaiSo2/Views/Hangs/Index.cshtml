@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NguyenDinhHuan_2019602287_De3.Models.Hang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.DisplayName("Nhập vào giá từ  ")
+    @Html.TextBox("start", ViewBag.CurrentFilter as string)
+    @Html.DisplayName(" Đến ")
+    @Html.TextBox("end", ViewBag.CurrentFilter2 as string)
+    <input type="submit" value=" Tìm" />
+}
+@{ 
+    var s = @ViewBag.Tong;
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tên hàng")
+        </th>
+        <th>
+            @Html.DisplayName("Loại")
+        </th>
+        <th>
+            @Html.DisplayName("Giá")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenhang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+        </tr>
+    }
+
+</table>
+<p style="color: red; font-size: 30px;">Tổng giá là: @ViewBag.Tong</p>

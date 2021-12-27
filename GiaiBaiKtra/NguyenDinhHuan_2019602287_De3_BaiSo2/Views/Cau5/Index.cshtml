@@ -1,0 +1,73 @@
+﻿@model NguyenDinhHuan_2019602287_De3.Models.Hang
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="myContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <table border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2">QUẢN LÝ HÀNG</th>
+            </tr>
+            <tr>
+                <td>Mã hàng: </td>
+                <td>@Html.TextBox("Mahang")</td>
+            </tr>
+            <tr>
+                <td>Tên hàng: </td>
+                <td>@Html.TextBox("Tenhang")</td>
+            </tr>
+            <tr>
+                <td>Loại hàng: </td>
+                <td>@Html.TextBox("Loai")</td>
+            </tr>
+            <tr>
+                <td>Giá: </td>
+                <td>@Html.TextBox("Gia")</td>
+            </tr>
+            <tr class="inp">
+                <td colspan="2">
+                    <input value="Thêm" type="submit" class="btn btn-default" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@if (ViewBag.Success != null)
+{
+    <br />
+    <div class="alert alert-success" role="alert">@ViewBag.Success</div>
+}
+@if (ViewBag.Error != null)
+{
+    <br />
+    <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+}
+
+<div>
+    @Html.ActionLink("Xem danh sách hàng", "Index", "Hangs")
+</div>
+
+<style>
+    .myContainer {
+        margin: auto;
+        margin-top: 100px;
+    }
+
+    th {
+        font-weight: bolder;
+        font-size: 20px;
+    }
+
+    td {
+        padding: 7px 15px;
+    }
+
+    .inp, th {
+        text-align: center;
+    }
+</style>
